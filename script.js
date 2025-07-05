@@ -3,7 +3,7 @@ let currentReservations = [];
 let currentReservationNumber = '';
 
 // Cloud Run API設定
-const API_BASE_URL = 'https://your-reservation-check-api.run.app/api';
+const API_BASE_URL = 'https://reservation-conference-36382648212.asia-northeast1.run.ap';
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function() {
