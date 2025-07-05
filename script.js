@@ -60,7 +60,7 @@ async function checkReservation() {
     loadingMessage.style.display = 'block';
     
     try {
-        const response = await fetch(`${API_BASE_URL}/check-reservation`, {
+        const response = await fetch(`${API_BASE_URL}/api/reservation-conference`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
