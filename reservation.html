@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Works天 - 予約詳細</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="logo.png" alt="Hair Works天 ロゴ" onerror="this.style.display='none'" class="logo-image">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 予約確認ページ -->
+    <div id="reservation-detail-page" class="page active">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">予約詳細</div>
+            </div>
+
+            <div id="reservation-details-container">
+                <!-- 予約詳細はJavaScriptで動的に生成 -->
+            </div>
+
+            <div class="reservation-notes">
+                <h4>予約に関する注意事項</h4>
+                <ul>
+                    <li>キャンセル締切：1時間前まで</li>
+                    <li>予約の変更が必要な場合は、一旦キャンセルしてから再度ご予約ください</li>
+                    <li>複数人でのご予約の場合は、一度全員分をキャンセルしてから再度同行者としてご登録ください</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="goBack()">戻る</button>
+                <button class="cancel-button" id="cancel-button" onclick="confirmCancel()" disabled>キャンセル</button>
+            </div>
+
+            <div class="loading-message" id="loading-message" style="display: none;">
+                <div class="loading">処理中です</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
