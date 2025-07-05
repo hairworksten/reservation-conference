@@ -116,7 +116,7 @@ async function loadReservationFromUrl() {
     }
     
     try {
-        const response = await fetch(`${API_BASE_URL}/check-reservation`, {
+        const response = await fetch(`${API_BASE_URL}/api/check-reservation`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
