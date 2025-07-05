@@ -3,7 +3,7 @@ let currentReservations = [];
 let currentReservationNumber = '';
 
 // Cloud Run API設定
-const API_BASE_URL = 'https://reservation-conference-knn6yth7rq-an.a.run.app';
+const API_BASE_URL = 'https://reservation-conference-knn6yth7rq-an.a.run.app/api';
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function() {
@@ -60,7 +60,7 @@ async function checkReservation() {
     loadingMessage.style.display = 'block';
     
     try {
-        const response = await fetch(`${API_BASE_URL}/api/check-reservation`, {
+        const response = await fetch(`${API_BASE_URL}/check-reservation`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ async function loadReservationFromUrl() {
     }
     
     try {
-        const response = await fetch(`${API_BASE_URL}/api/check-reservation`, {
+        const response = await fetch(`${API_BASE_URL}/check-reservation`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
