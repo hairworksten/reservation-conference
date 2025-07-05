@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Works天 - 予約確認</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="logo.png" alt="Hair Works天 ロゴ" onerror="this.style.display='none'" class="logo-image">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 予約確認入力ページ -->
+    <div id="check-input-page" class="page active">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">予約確認</div>
+                <div class="page-subtitle">予約番号と苗字を入力してください</div>
+            </div>
+
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="form-label">予約番号 *</label>
+                    <input type="text" class="form-input" id="reservation-number" placeholder="例：12345678" required maxlength="8">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">苗字 *</label>
+                    <input type="text" class="form-input" id="last-name" placeholder="例：山田" required>
+                </div>
+
+                <button class="confirm-button" onclick="checkReservation()">確認</button>
+            </div>
+
+            <div class="error-message" id="error-message" style="display: none;"></div>
+            <div class="loading-message" id="loading-message" style="display: none;">
+                <div class="loading">予約情報を確認しています</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
