@@ -40,13 +40,13 @@ function initLogoDisplay() {
 // 予約確認処理
 async function checkReservation() {
     const reservationNumber = document.getElementById('reservation-number').value.trim();
-    const lastName = document.getElementById('last-name').value.trim();
+    const phoneNumber = document.getElementById('phone-number').value.trim();
     const errorMessage = document.getElementById('error-message');
     const loadingMessage = document.getElementById('loading-message');
     
     // バリデーション
-    if (!reservationNumber || !lastName) {
-        showError('予約番号と苗字を入力してください。');
+    if (!reservationNumber || !phoneNumber) {
+        showError('予約番号と電話番号を入力してください。');
         return;
     }
     
@@ -67,7 +67,7 @@ async function checkReservation() {
             },
             body: JSON.stringify({
                 reservationNumber: reservationNumber,
-                lastName: lastName
+                lastName: phoneNumber  // バックエンドAPIのlastNameパラメータに電話番号を送信
             })
         });
         
@@ -81,11 +81,11 @@ async function checkReservation() {
             // 予約情報をURLパラメータとして渡して詳細ページに遷移
             const params = new URLSearchParams({
                 number: reservationNumber,
-                name: lastName
+                phone: phoneNumber  // パラメータ名を変更
             });
             window.location.href = `reservation.html?${params.toString()}`;
         } else {
-            showError('該当する予約が見つかりませんでした。予約番号と苗字を確認してください。');
+            showError('該当する予約が見つかりませんでした。予約番号と電話番号を確認してください。');
         }
         
     } catch (error) {
@@ -100,9 +100,9 @@ async function checkReservation() {
 async function loadReservationFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const reservationNumber = params.get('number');
-    const lastName = params.get('name');
+    const phoneNumber = params.get('phone');  // パラメータ名を変更
     
-    if (!reservationNumber || !lastName) {
+    if (!reservationNumber || !phoneNumber) {
         showError('不正なアクセスです。');
         return;
     }
@@ -123,7 +123,7 @@ async function loadReservationFromUrl() {
             },
             body: JSON.stringify({
                 reservationNumber: reservationNumber,
-                lastName: lastName
+                lastName: phoneNumber  // バックエンドAPIのlastNameパラメータに電話番号を送信
             })
         });
         
@@ -173,7 +173,11 @@ function displayReservationDetails(reservations) {
             </div>
             <div class="confirmation-item">
                 <span class="confirmation-label">お名前</span>
-                <span class="confirmation-value">${reservation['Name-f']} ${reservation['Name-s']}</span>
+                <span class="confirmation-value">${reservation['Name-f']}</span>
+            </div>
+            <div class="confirmation-item">
+                <span class="confirmation-label">電話番号</span>
+                <span class="confirmation-value">${reservation['Name-s'] === '同行者' ? '同行者として登録' : reservation['Name-s']}</span>
             </div>
             <div class="confirmation-item">
                 <span class="confirmation-label">メニュー</span>
@@ -327,7 +331,7 @@ function showError(message) {
 document.addEventListener('keypress', function(event) {
     if (event.key === 'Enter' && document.getElementById('reservation-number')) {
         const activeElement = document.activeElement;
-        if (activeElement && (activeElement.id === 'reservation-number' || activeElement.id === 'last-name')) {
+        if (activeElement && (activeElement.id === 'reservation-number' || activeElement.id === 'phone-number')) {
             checkReservation();
         }
     }
