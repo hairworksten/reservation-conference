@@ -20,7 +20,7 @@
         <div class="container">
             <div class="page-header">
                 <div class="page-title">予約確認</div>
-                <div class="page-subtitle">予約番号とお名前を入力してください</div>
+                <div class="page-subtitle">予約番号と予約時に登録した電話番号を入力してください</div>
             </div>
 
             <div class="form-container">
@@ -29,8 +29,8 @@
                     <input type="text" class="form-input" id="reservation-number" placeholder="例：12345678" required maxlength="8">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">お名前 *</label>
-                    <input type="text" class="form-input" id="phone-number" placeholder="例：山田" required>
+                    <label class="form-label">電話番号（ハイフンなし・半角数字） *</label>
+                    <input type="text" class="form-input" id="phone-number" placeholder="例：09012345678" required>
                 </div>
 
                 <button class="confirm-button" onclick="checkReservation()">確認</button>
