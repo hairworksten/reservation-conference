@@ -85,7 +85,7 @@ async function checkReservation() {
             });
             window.location.href = `reservation.html?${params.toString()}`;
         } else {
-            showError('該当する予約が見つかりませんでした。予約番号と電話番号を確認してください。');
+            showError('該当する予約が見つかりませんでした。予約番号と電話番号を確認してください。電話番号はご予約時に入力された形式で入力してください。');
         }
         
     } catch (error) {
